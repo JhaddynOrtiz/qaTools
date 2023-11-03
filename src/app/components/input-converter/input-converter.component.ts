@@ -30,14 +30,12 @@ export class InputConverterComponent {
           url: x.ProductUrl,
           userData: {
             Manufacturer: x.Manufacturer,
-            // Otros datos de usuario si los hubiera
           }
         });
       }
     }
     this.codeHtml2=updaterList;
     console.log(updaterList);
-    // Haces algo con updaterList, ya que parece que estás buscando filtrar según la condición y crear una lista.
   }
 
 
