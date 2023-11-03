@@ -1,0 +1,11 @@
+<!-- ngx-monaco-editor para ingresar código HTML -->
+<ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="codeHtml"></ngx-monaco-editor>
+
+<!-- Botón para procesar y convertir a dataset -->
+<button (click)="processData()">Convertir a dataset</button>
+
+<!-- Botón para copiar al portapapeles -->
+<button (click)="copyToClipboard(codeHtml2)" >Copiar a portapapeles</button>
+
+<!-- Vista del JSON -->
+<ngx-json-viewer *ngIf="codeHtml2 !== ''" [json]="codeHtml2"></ngx-json-viewer>
