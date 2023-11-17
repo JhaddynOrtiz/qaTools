@@ -16,28 +16,38 @@ export class InputConverterComponent {
     language: 'json',
     automaticLayout: true
   };
+
   showJsonViewer: boolean = false;
   codeHtml: any = '';
+  crawlerJson: any = '';
+  productName: boolean = false;
+  productId: boolean = false;
   codeHtml2: any = '';
   crawlerOutput:any;
+
   processData(): void {
     const updaterList: any[] = [];
     const crawler:any = JSON.parse(this.codeHtml);
 
     for (const x of crawler) {
       if (!x.Handled) {
-        updaterList.push({
+        const newData ={
           url: x.ProductUrl,
           userData: {
             Manufacturer: x.Manufacturer,
+            ProductName: this.productName ? x.ProductName : undefined,
+            ProductId: this.productId ? x.ProductId : undefined
           }
-        });
+        }
+        updaterList.push(newData);
       }
     }
     this.codeHtml2=updaterList;
-    console.log(updaterList);
   }
 
+  clearConsole(): void{
+    this.codeHtml = '';
+  }
 
   copyToClipboard(text: string) {
     
@@ -51,4 +61,5 @@ export class InputConverterComponent {
       duration: 3000, // Duración del snackbar
     });
   }
+
 }

@@ -1,10 +1,20 @@
-
 <ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="codeHtml"></ngx-monaco-editor>
+<!-- <ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="crawlerJson"></ngx-monaco-editor> -->
 
 <button (click)="processData()">Convertir a dataset</button>
 
 
-<button (click)="copyToClipboard(codeHtml2)" >Copiar a portapapeles</button>
+<button (click)="copyToClipboard(codeHtml2)">Copiar a portapapeles</button>
+<label class="switch">
+    <input type="checkbox" [(ngModel)]="productName">
+    <span class="slider">ProductName?</span>
+</label>
+<label class="switch">
+    <input type="checkbox" [(ngModel)]="productId">
+    <span class="slider">ProductId?</span>
+</label>
 
+
+<button (click)="clearConsole()">Limpiar consola</button>
 
 <ngx-json-viewer *ngIf="codeHtml2 !== ''" [json]="codeHtml2"></ngx-json-viewer>
