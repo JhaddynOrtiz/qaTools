@@ -3,7 +3,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { AuthServiceService } from '../../services/auth-service.service';
+
 @Component({
   selector: 'app-input-converter',
   templateUrl: './input-converter.component.html',
@@ -12,7 +13,11 @@ import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebas
 
 export class InputConverterComponent implements OnInit {
 
-  constructor(private clipboard: Clipboard, private snackBar: MatSnackBar, public fbAuth: AngularFireAuth) { }
+  constructor(
+    private clipboard: Clipboard, 
+    private snackBar: MatSnackBar, 
+    public fbAuth: AngularFireAuth,
+    private authService: AuthServiceService) { }
 
   codeEditorOptionsHtml = {
     theme: 'vs-dark',
@@ -20,7 +25,7 @@ export class InputConverterComponent implements OnInit {
     automaticLayout: true
   };
 
-  emailUser: string = '';
+  
   showJsonViewer: boolean = false;
   codeHtml: any = '';
   crawlerJson: any = '';
@@ -28,6 +33,8 @@ export class InputConverterComponent implements OnInit {
   productId: boolean = false;
   codeHtml2: any = '';
   crawlerOutput: any;
+
+  userInfo: any = '';
 
   processData(): void {
     const updaterList: any[] = [];
@@ -67,30 +74,13 @@ export class InputConverterComponent implements OnInit {
       duration: 3000, // Duración del snackbar
     });
   }
-
-  isAuth() {
-    const auth = getAuth();
-    onAuthStateChanged(auth, (user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        const email = user.email;
-        this.emailUser = email ? email : '';
-        console.log('user ', uid, ' => ', email);
-
-        // ...
-      } else {
-        // User is signed out
-        console.log('Not user');
-
-        // ...
-      }
-    });
-  }
+ 
 
   ngOnInit() {
-    this.isAuth();
+    const authUser = this.authService.isAuth();
+    this.userInfo = authUser;
+    console.log('auth user ', authUser);
+    
   }
 
 }

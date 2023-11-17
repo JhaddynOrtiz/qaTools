@@ -9,6 +9,8 @@ export class AuthServiceService {
 
   constructor(public fbAuth: AngularFireAuth) { }
 
+  emailUser: string = '';
+
   autentication(email: string, password: string) {
     const auth = getAuth();
     const response: any[] = [];
@@ -27,6 +29,26 @@ export class AuthServiceService {
         console.log(errorCode, errorMessage);
         response.push(error);
       });
-      return response
+    return response
+  }
+
+  isAuth() {
+    const auth = getAuth();
+    const response: any[] = [];
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        /* const uid = user.uid;
+        const email = user.email;
+        this.emailUser = email ? email : ''; */
+        console.log('user ', user);
+        response.push(user);
+        
+      } else {
+        response.push({
+          "message": "not found user"
+        });
+      }
+    });
+    return response;
   }
 }
