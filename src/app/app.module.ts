@@ -17,6 +17,10 @@ import { FirebaseUIModule, firebase, firebaseui } from 'firebaseui-angular';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LoginComponent } from './components/login/login.component';
+import { ProductionTaskListComponent } from './components/production-task-list/production-task-list.component';
+import { AgGridModule } from 'ag-grid-angular';
+import { HttpClientModule } from '@angular/common/http';
+
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
   signInFlow: 'popup',
@@ -56,7 +60,8 @@ firebase.initializeApp(environment.firebaseConfig);
   declarations: [
     AppComponent,
     InputConverterComponent,
-    LoginComponent
+    LoginComponent,
+    ProductionTaskListComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +73,9 @@ firebase.initializeApp(environment.firebaseConfig);
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    FirebaseUIModule.forRoot(firebaseUiAuthConfig)
+    FirebaseUIModule.forRoot(firebaseUiAuthConfig),
+    AgGridModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
