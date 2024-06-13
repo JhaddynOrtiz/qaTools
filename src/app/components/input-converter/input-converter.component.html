@@ -1,21 +1,36 @@
-<h2>{{userInfo[0]?.email}}</h2>
-<ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="codeHtml"></ngx-monaco-editor>
-<!-- <ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="crawlerJson"></ngx-monaco-editor> -->
+<div class="title-container">
+    <h2>{{userInfo[0]?.email}} Hello...</h2>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="editor-container">
+                <ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="codeHtml"></ngx-monaco-editor>
+            </div>
+            <!-- <ngx-monaco-editor [options]="codeEditorOptionsHtml" [(ngModel)]="crawlerJson"></ngx-monaco-editor> -->
 
-<button (click)="processData()">Convertir a dataset</button>
+            <button class="btn btn-primary m-1" (click)="processData()">
+                <i class="bi bi-folder-symlink"></i> Convert</button>
 
-
-<button (click)="copyToClipboard(codeHtml2)">Copiar a portapapeles</button>
-<label class="switch">
-    <input type="checkbox" [(ngModel)]="productName">
-    <span class="slider">ProductName?</span>
-</label>
-<label class="switch">
-    <input type="checkbox" [(ngModel)]="productId">
-    <span class="slider">ProductId?</span>
-</label>
-
-
-<button (click)="clearConsole()">Limpiar consola</button>
-
-<ngx-json-viewer *ngIf="codeHtml2 !== ''" [json]="codeHtml2"></ngx-json-viewer>
+            <button class="btn btn-success m-1" (click)="copyToClipboard(codeHtml2)">
+                <i class="bi bi-copy"></i> Copy
+            </button>
+            <label class="switch">
+                <input type="checkbox" [(ngModel)]="productName">
+                <span class="slider">ProductName?</span>
+            </label>
+            <label class="switch">
+                <input type="checkbox" [(ngModel)]="productId">
+                <span class="slider">ProductId?</span>
+                <button class="btn btn-warning text-white m-1" (click)="clearConsole()">
+                    <i class="bi bi-eraser"></i> Clean console
+                </button>
+            </label>
+        </div>
+        <div class="col-md-6">
+            <div class="json-viewer-container">
+                <ngx-json-viewer *ngIf="codeHtml2 !== ''" [json]="codeHtml2"></ngx-json-viewer>
+            </div>
+        </div>
+    </div>
+</div>

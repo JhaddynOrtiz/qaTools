@@ -59,6 +59,7 @@ export class InputConverterComponent implements OnInit {
 
   clearConsole(): void {
     this.codeHtml = '';
+    this.codeHtml2 = '';
   }
 
   copyToClipboard(text: string) {

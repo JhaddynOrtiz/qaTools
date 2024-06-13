@@ -22,6 +22,8 @@
     "@angular/router": "^16.2.0",
     "ag-grid-angular": "^30.2.1",
     "ag-grid-community": "^30.2.1",
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "firebase": "^9.23.0",
     "firebaseui": "^6.1.0",
     "firebaseui-angular": "^6.1.4",

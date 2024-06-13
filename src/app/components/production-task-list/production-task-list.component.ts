@@ -15,6 +15,7 @@ export class ProductionTaskListComponent {
   paginationPageSize = 20;
   loadingData = false;
   totalPages: any;
+  pivotPanelShow: number = 55;
 
   columnDefs = [
     { headerName: 'ID', field: 'id' },

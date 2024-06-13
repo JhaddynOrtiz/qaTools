@@ -1,0 +1,33 @@
+.editor-container {
+    width: 100%;
+    height: 500px;
+    /* Ajusta esta altura según tus necesidades */
+}
+
+ngx-monaco-editor {
+    height: 100%;
+}
+
+.json-viewer-container {
+    width: 100%;
+    height: 500px;
+    overflow-y: scroll;
+    scrollbar-color: #324B52 #022A36;
+    scrollbar-width: thin;
+    border: 1px solid #444;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #022A36;
+    color: #f8f8f2;
+    color: var(--ngx-json-value);
+    font-size: var(--ngx-json-font-size);
+}
+
+/* ngx-json-viewer {
+    display: block;
+} */
+
+.json-viewer-container ngx-json-viewer {
+    display: block;
+    /* Asegura que ocupe el espacio completo del contenedor */
+}

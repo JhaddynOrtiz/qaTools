@@ -1,1 +1,22 @@
 @import '~firebaseui/dist/firebaseui.css';
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+
+:root {
+    --ngx-json-string: #a6e22e;
+    --ngx-json-number: #ffffff;
+    --ngx-json-boolean: #fd971f;
+    --ngx-json-date: #e6db74;
+    --ngx-json-array: #66d9ef;
+    --ngx-json-object: #f8f8f2;
+    --ngx-json-function: #f92672;
+    --ngx-json-null: #f92672;
+    --ngx-json-null-bg: #3e3d32;
+    --ngx-json-undefined: #75715e;
+    --ngx-json-toggler: #66d9ef;
+    --ngx-json-key: #66d9ef;
+    --ngx-json-separator: #f8f8f2;
+    --ngx-json-value: #f8f8f2;
+    --ngx-json-undefined-key: #75715e;
+    --ngx-json-font-family: 'Courier New', Courier, monospace;
+    --ngx-json-font-size: 14px;
+}
