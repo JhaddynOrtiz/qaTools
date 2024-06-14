@@ -20,6 +20,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ProductionTaskListComponent } from './components/production-task-list/production-task-list.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -61,7 +62,8 @@ firebase.initializeApp(environment.firebaseConfig);
     AppComponent,
     InputConverterComponent,
     LoginComponent,
-    ProductionTaskListComponent
+    ProductionTaskListComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
