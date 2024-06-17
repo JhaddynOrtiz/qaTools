@@ -21,6 +21,8 @@ import { ProductionTaskListComponent } from './components/production-task-list/p
 import { AgGridModule } from 'ag-grid-angular';
 import { HttpClientModule } from '@angular/common/http';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HomeComponent } from './components/home/home.component';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -63,7 +65,8 @@ firebase.initializeApp(environment.firebaseConfig);
     InputConverterComponent,
     LoginComponent,
     ProductionTaskListComponent,
-    SideBarComponent
+    SideBarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +80,8 @@ firebase.initializeApp(environment.firebaseConfig);
     AngularFireAuthModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     AgGridModule,
-    HttpClientModule
+    HttpClientModule,
+    SweetAlert2Module.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

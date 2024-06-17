@@ -6,18 +6,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <!-- <form> -->
-                    <div class="mb-3">
-                        <label for="urlTask" class="form-label">Url Task</label>
+                <div class="col-auto">
+                    <label for="urlTask" class="form-label">Url Task</label>
+                    <div class="input-group mb-2">
                         <input type="text" class="form-control" id="urlTask" [(ngModel)]="urlTask">
-                        <!-- <div id="urlTask" class="form-text">Added a url API Task</div> -->
+                        <div class="input-group-prepend">
+                            <button class="input-group-text button-clear-url" (click)="ClearUrl()"><i
+                                    class="bi bi-x-circle"></i></button>
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="startUrls" class="form-label">startUrls</label>
-                        <!-- <input type="text" class="form-control" id="startUrls"> -->
-                        <textarea class="form-control" id="startUrls" rows="10" [(ngModel)]="jsonModal"></textarea>
-                        <!-- <label for="floatingTextarea2">Comments</label> -->
-                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="startUrls" class="form-label">startUrls</label>
+                    <!-- <input type="text" class="form-control" id="startUrls"> -->
+                    <textarea class="form-control" id="startUrls" rows="10" [(ngModel)]="jsonModal"></textarea>
+                    <!-- <label for="floatingTextarea2">Comments</label> -->
+                </div>
 
                 <!-- </form> -->
             </div>
@@ -28,6 +32,7 @@
         </div>
     </div>
 </div>
+
 
 
 
@@ -56,7 +61,8 @@
             </div>
         </div>
         <div class="col-md-6">
-            <button *ngIf="codeHtml2 !== ''" type="button" class="btn btn-primary m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button *ngIf="codeHtml2 !== ''" type="button" class="btn btn-primary m-1" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
                 Run Task Updater
             </button>
 

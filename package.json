@@ -11,6 +11,7 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^16.2.0",
+    "@angular/cdk": "^16.2.11",
     "@angular/common": "^16.2.0",
     "@angular/compiler": "^16.2.0",
     "@angular/core": "^16.2.0",
@@ -20,6 +21,7 @@
     "@angular/platform-browser": "^16.2.0",
     "@angular/platform-browser-dynamic": "^16.2.0",
     "@angular/router": "^16.2.0",
+    "@sweetalert2/ngx-sweetalert2": "^12.3.0",
     "ag-grid-angular": "^30.2.1",
     "ag-grid-community": "^30.2.1",
     "bootstrap": "^5.3.3",
@@ -31,6 +33,7 @@
     "ngx-json-viewer": "^3.2.1",
     "ngx-monaco-editor": "^12.0.0",
     "rxjs": "~7.8.0",
+    "sweetalert2": "^11.11.1",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
   },

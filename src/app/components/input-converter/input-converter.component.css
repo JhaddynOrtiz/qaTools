@@ -13,12 +13,12 @@ ngx-monaco-editor {
     height: 490px;
     border-radius: 5px;
     overflow-y: scroll;
-    scrollbar-color: #324B52 #022A36;
+    scrollbar-color: #dfdfdf #b1b1b1;
     scrollbar-width: thin;
-    border: 1px solid #444;
+    border: 1px solid #c5c5c5;
     padding: 10px;
     box-sizing: border-box;
-    background-color: #bcefff;
+    background-color: #eeeeee;
     /* background-color: #022A36; */
     color: #f8f8f2;
     color: var(--ngx-json-value);
@@ -31,4 +31,14 @@ ngx-monaco-editor {
 
 .button-right {
     float: right;
+}
+
+.button-clear-url{
+    color: #afafaf;
+}
+
+.button-clear-url:hover {
+    color: #d42222;
+    border-color: #d42222;
+    background-color: #ff00002f;
 }

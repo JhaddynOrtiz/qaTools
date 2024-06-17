@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { InputConverterComponent } from './components/input-converter/input-converter.component';
 import { LoginComponent } from './components/login/login.component';
 import { ProductionTaskListComponent } from './components/production-task-list/production-task-list.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: InputConverterComponent },
+  { path: '', component: HomeComponent },
   { path: 'convert', component: InputConverterComponent },
   { path: 'login', component: LoginComponent },
   { path: 'production-list', component: ProductionTaskListComponent }
