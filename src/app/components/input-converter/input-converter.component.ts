@@ -44,6 +44,7 @@ export class InputConverterComponent implements OnInit {
   startUrls: any = '';
 
   userInfo: any = '';
+  responseTask: boolean = false;
 
   processData(): void {
     const updaterList: any[] = [];
@@ -63,7 +64,7 @@ export class InputConverterComponent implements OnInit {
       }
     }
     this.codeHtml2 = updaterList;
-    this.jsonModal = JSON.stringify(this.codeHtml2, null, 2);
+    this.jsonModal = JSON.stringify({ "startUrls": this.codeHtml2 }, null, 2);
     console.log('state ', this.fbAuth.user);
   }
 
@@ -90,14 +91,14 @@ export class InputConverterComponent implements OnInit {
     console.log('startUrls', this.jsonModal);
     console.log('urlTask', this.urlTask);
 
-    this.taskService.runTaskUpdater(JSON.parse(this.jsonModal), this.urlTask)/* .subscribe(
-      response => {
-        console.log('Response', response);        
+    this.taskService.runTaskUpdater(JSON.parse(this.jsonModal), this.urlTask).subscribe(
+      (response) => {
+        this.responseTask = true;
       },
       error => {
-        console.log('Error', error);        
+        this.responseTask = false;
       }
-    ) */
+    )
   }
 
 
