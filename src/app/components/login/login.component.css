@@ -7,14 +7,25 @@ body {
     margin: 0;
 }
 
-form {
-    width: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
+.form-login {
+    width: 450px;
+    padding: 40px;
+    border: 1px solid var(--lines-hr);
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
     margin-top: 100px;
+    color: #FFFFFF;
+}
+
+.title-content {
+    text-align: center;
+    color: var(--button-prim);
+    padding-bottom: 20px;
+}
+
+.title-content h5 {
+    font-size: 25px;
 }
 
 label {

@@ -1,5 +1,47 @@
-
-
-.btn-rigth { 
+.btn-rigth {
     float: right;
+}
+
+.button-prim {
+    background: var(--button-prim);
+    color: #FFFFFF;
+}
+
+.button-prim:hover {
+    background: var(--button-sec);
+}
+
+.card {
+    --bs-card-border-width: 0;
+}
+
+.no-border-card {
+    --bs-card-border-width: 0;
+}
+
+.card-sec {
+    background-color: var(--background-sec);
+    color: #FFFFFF;
+    border: 1px solid var(--lines-hr);
+    border-radius: 5px;
+}
+
+.content-card-list {
+    border: 1px solid var(--lines-hr);
+}
+
+.card-list {
+    background-color: var(--background-sec);
+    color: var(--button-prim);
+    border: 1px solid var(--lines-hr);
+}
+
+.card-list a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.card-list a:hover {
+    color: var(--button-sec);
+    text-decoration: underline;
 }

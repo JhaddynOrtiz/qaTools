@@ -23,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HomeComponent } from './components/home/home.component';
+import { ComparerComponent } from './components/comparer/comparer.component';
+import { ValidationComponent } from './components/validation/validation.component';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -66,7 +68,9 @@ firebase.initializeApp(environment.firebaseConfig);
     LoginComponent,
     ProductionTaskListComponent,
     SideBarComponent,
-    HomeComponent
+    HomeComponent,
+    ComparerComponent,
+    ValidationComponent
   ],
   imports: [
     BrowserModule,
