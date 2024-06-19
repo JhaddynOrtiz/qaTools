@@ -1,1 +1,62 @@
-<p>validation works!</p>
+<div class="title-container">
+    <br>
+    <!-- <h2>{{userInfo[0]?.email}}</h2> -->
+    <div class="container text-prim">
+        <h3>Send Validation</h3>
+    </div>
+    <br>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form class="row" (ngSubmit)="sendValidation()">
+                <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label text-white">Id Task</label>
+                    <input type="text" class="form-control input-color" [(ngModel)]="idTask" name="idTask">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom01" class="form-label text-white">Type Robot</label>
+                    <select class="form-select input-color" [(ngModel)]="typeRobot" name="typeRobot" aria-label="Default select example">
+                        <option selected value="crawler">Crawler</option>
+                        <option value="updater">Updater</option>
+                    </select>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom02" class="form-label text-white">Manufacturer Code</label>
+                    <input type="text" class="form-control input-color" [(ngModel)]="manufacturerCode" name="manufacturerCode">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom02" class="form-label text-white">Product Url</label>
+                    <input type="text" class="form-control input-color" [(ngModel)]="productUrl" name="productUrl">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="validationCustom02" class="form-label text-white">Image Url</label>
+                    <input type="text" class="form-control input-color" [(ngModel)]="imageUri" name="imageUri">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="validationCustom02" class="form-label text-white">Culture Code</label>
+                    <input type="text" class="form-control input-color" [(ngModel)]="cultureCode" name="cultureCode">
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-12">
+                    <button class="btn button-prim button-send" type="submit">Submit form</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6"></div>
+    </div>
+</div>

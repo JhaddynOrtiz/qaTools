@@ -1,0 +1,29 @@
+
+
+.text-prim {
+    color: var(--button-prim);
+}
+
+.button-prim {
+    background: var(--button-prim);
+    color: #FFFFFF;
+}
+
+.button-prim:hover {
+    background: var(--button-sec);
+}
+
+.button-send {
+    margin-top: 15px;
+}
+
+.input-color {
+    background-color: #1b2844;
+    border: 1px solid var(--lines-hr);
+    color: #FFFFFF;
+}
+
+.input-color:active {
+    background-color: #1b2844 !important;
+    color: #FFFFFF;
+}
