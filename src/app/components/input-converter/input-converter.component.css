@@ -1,6 +1,6 @@
 .editor-container {
     width: 100%;
-    height: 500px;
+    height: 450px;
 }
 
 ngx-monaco-editor {
@@ -17,7 +17,7 @@ ngx-monaco-editor {
 
 .json-viewer-container {
     width: 100%;
-    height: 490px;
+    height: 440px;
     border-radius: 5px;
     overflow-y: scroll;
     scrollbar-color: #56688b #161D2F;
