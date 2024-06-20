@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../services/tasks.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import Swal from 'sweetalert2';
 
@@ -10,16 +11,25 @@ import Swal from 'sweetalert2';
 })
 export class ValidationComponent {
 
-  //https://console.apify.com/organization/GTLDwzJnfTMQqgBR4/actors/tasks/XETtJl5o4ddH0I1Sg/runs/MKZzQbgNt4wuQ0YDw#log
-  //https://console.apify.com/organization/OrganizationId/actors/tasks/ActorId/runs/RunId#log
-  idTask: string = '';
+  /* idTask: string = '';
   typeRobot: string = '';
   manufacturerCode: string = '';
   productUrl: string = '';
   imageUri: string = '';
-  cultureCode: string = '';
+  cultureCode: string = ''; */
 
-  constructor(private taskService: TaskService) { }
+  form: FormGroup;
+
+  constructor(private taskService: TaskService) {
+    this.form = new FormGroup({
+      idTask: new FormControl('', [Validators.required]),
+      typeRobot: new FormControl('crawler', [Validators.required]),
+      manufacturerCode: new FormControl('', [Validators.required]),
+      productUrl: new FormControl('', [Validators.required, Validators.pattern('https?://.+')]),
+      imageUri: new FormControl('', [Validators.pattern('https?://.+')]),
+      cultureCode: new FormControl('', [Validators.required])
+    });
+  }
 
   sendValidation() {
     const body = {
@@ -29,12 +39,12 @@ export class ValidationComponent {
         "ProductId": true
       },
       "CheckMappingCodes": true,
-      "CultureCode": this.cultureCode,
+      "CultureCode": this.form.value.cultureCode,
       "Environment": "QA",
       "Regex": {
         "Manufacturer": [
           {
-            "Code": this.manufacturerCode,
+            "Code": this.form.value.manufacturerCode,
             "Match": true
           }
         ],
@@ -46,7 +56,7 @@ export class ValidationComponent {
         ],
         "ProductUrl": [
           {
-            "Code": this.productUrl,
+            "Code": this.form.value.productUrl,
             "Match": true
           }
         ],
@@ -70,35 +80,45 @@ export class ValidationComponent {
         ],
         "ImageUri": [
           {
-            "Code": this.imageUri,
+            "Code": this.form.value.imageUri,
             "Match": true
           }
         ]
       },
       "RobotTypes": {
-        "Name": this.typeRobot,
-        "TaskID": this.idTask,
+        "Name": this.form.value.typeRobot,
+        "TaskID": this.form.value.idTask,
         "ExcludeFields": []
       },
       "debugLog": false
     }
 
-    this.taskService.runTaskUpdater(body, "https://api.apify.com/v2/actor-tasks/cs_qa~cs-qa-validation/runs?token=apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W").subscribe(
-      (response) => {
-        Swal.fire({
-          title: "La tarea se envió a ejecutar!",
-          text: "Check last run",
-          icon: "success"
-        });
-      },
-      error => {
-        Swal.fire({
-          title: "Ocurrió un problema al realziar la solicitud",
-          text: error.message,
-          icon: "error"
-        });
-      }
-    )
+    if (this.form.valid) {
+      this.taskService.runTaskUpdater(body, "https://api.apify.com/v2/actor-tasks/cs_qa~cs-qa-validation/runs?token=apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W").subscribe(
+        (response) => {
+          Swal.fire({
+            title: "La tarea se envió a ejecutar!",
+            text: "Check last run",
+            icon: "success"
+          });
+        },
+        error => {
+          Swal.fire({
+            title: "Ocurrió un problema al realziar la solicitud",
+            text: error.message,
+            icon: "error"
+          });
+        }
+      )
+    } else {
+      Swal.fire({
+        title: "Error!",
+        text: "Llena los campos para ejecutar la prueba de validación",
+        icon: "error"
+      });
+    }
+
+
   }
 
 }

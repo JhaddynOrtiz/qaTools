@@ -8,6 +8,7 @@ import { InputConverterComponent } from './components/input-converter/input-conv
 import { environment } from "../environments/environment";
 
 import { FormsModule } from '@angular/forms'; // or import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 import { MaterialModule } from './core/material/material.module';
@@ -78,6 +79,7 @@ firebase.initializeApp(environment.firebaseConfig);
     BrowserAnimationsModule,
     MonacoEditorModule.forRoot(),
     FormsModule,
+    ReactiveFormsModule,
     NgxJsonViewerModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

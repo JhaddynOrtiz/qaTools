@@ -9,48 +9,53 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-            <form class="row" (ngSubmit)="sendValidation()">
+            <form class="row" [formGroup]="form" (ngSubmit)="sendValidation()">
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label text-white">Id Task</label>
-                    <input type="text" class="form-control input-color" [(ngModel)]="idTask" name="idTask">
-                    <div class="valid-feedback">
-                        Looks good!
+                    <input type="text" class="form-control input-color" formControlName="idTask">
+                    <div *ngIf="form.get('idTask')!.invalid && form.get('idTask')!.touched" class="text-danger">
+                        Id Task is required
                     </div>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom01" class="form-label text-white">Type Robot</label>
-                    <select class="form-select input-color" [(ngModel)]="typeRobot" name="typeRobot" aria-label="Default select example">
+                    <select class="form-select input-color" formControlName="typeRobot"
+                        aria-label="Default select example">
                         <option selected value="crawler">Crawler</option>
                         <option value="updater">Updater</option>
                     </select>
+                    <div *ngIf="form.get('typeRobot')?.invalid && form.get('typeRobot')?.touched" class="text-danger">
+                        Type Robot is required
+                    </div>
                 </div>
                 <div class="col-md-12">
                     <label for="validationCustom02" class="form-label text-white">Manufacturer Code</label>
-                    <input type="text" class="form-control input-color" [(ngModel)]="manufacturerCode" name="manufacturerCode">
-                    <div class="valid-feedback">
-                        Looks good!
+                    <input type="text" class="form-control input-color" formControlName="manufacturerCode">
+                    <div *ngIf="form.get('manufacturerCode')?.invalid && form.get('manufacturerCode')?.touched"
+                        class="text-danger">
+                        Manufacturer Code is required
                     </div>
                 </div>
                 <div class="col-md-12">
                     <label for="validationCustom02" class="form-label text-white">Product Url</label>
-                    <input type="text" class="form-control input-color" [(ngModel)]="productUrl" name="productUrl">
-                    <div class="valid-feedback">
-                        Looks good!
+                    <input type="text" class="form-control input-color" formControlName="productUrl">
+                    <div *ngIf="form.get('productUrl')?.invalid && form.get('productUrl')?.touched" class="text-danger">
+                        Product URL is required and should be a valid URL
                     </div>
                 </div>
-                <div class="col-md-12">
+                <div *ngIf="form.value.typeRobot == 'crawler'" class="col-md-12">
                     <label for="validationCustom02" class="form-label text-white">Image Url</label>
-                    <input type="text" class="form-control input-color" [(ngModel)]="imageUri" name="imageUri">
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="text" class="form-control input-color" formControlName="imageUri">
+                    <div *ngIf="form.get('imageUri')?.invalid && form.get('imageUri')?.touched" class="text-danger">
+                        Image URL is required and should be a valid URL
+                      </div>
                 </div>
                 <div class="col-md-6">
                     <label for="validationCustom02" class="form-label text-white">Culture Code</label>
-                    <input type="text" class="form-control input-color" [(ngModel)]="cultureCode" name="cultureCode">
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <input type="text" class="form-control input-color" formControlName="cultureCode">
+                    <div *ngIf="form.get('cultureCode')?.invalid && form.get('cultureCode')?.touched" class="text-danger">
+                        Culture Code is required
+                      </div>
                 </div>
                 <div class="col-12">
                     <button class="btn button-prim button-send" type="submit">Submit form</button>
