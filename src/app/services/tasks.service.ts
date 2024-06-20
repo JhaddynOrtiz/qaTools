@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class TaskService {
 
   private apiEndpoint = 'https://api.apify.com/v2/actor-tasks';
-  private token = 'apify_api_Werr6LibpMwYbet1YDdjCZyt18ZZNX4h22SS';
+  private token = 'apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W';
 
   constructor(private http: HttpClient) { }
 
@@ -19,7 +19,7 @@ export class TaskService {
     return this.http.get(url);
   }
 
-  runTaskUpdater(data: any, urlTask: string)/* : Observable<any> */ {
+  runTaskUpdater(data: any, urlTask: string): Observable<any> {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'

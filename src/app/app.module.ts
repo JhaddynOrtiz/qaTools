@@ -26,6 +26,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HomeComponent } from './components/home/home.component';
 import { ComparerComponent } from './components/comparer/comparer.component';
 import { ValidationComponent } from './components/validation/validation.component';
+import { HighlightTextPipe } from './pipes/highlight-text.pipe';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -71,7 +72,8 @@ firebase.initializeApp(environment.firebaseConfig);
     SideBarComponent,
     HomeComponent,
     ComparerComponent,
-    ValidationComponent
+    ValidationComponent,
+    HighlightTextPipe
   ],
   imports: [
     BrowserModule,

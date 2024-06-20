@@ -35,3 +35,15 @@ body {
 
     --icons-prim: #4ECFC5;
 }
+
+.my-info {
+    color: rgb(59, 179, 88) !important;
+}
+
+.my-warn {
+    color: rgb(249, 206, 75) !important;
+}
+
+.my-error {
+    color: rgb(255, 113, 87) !important;
+}
