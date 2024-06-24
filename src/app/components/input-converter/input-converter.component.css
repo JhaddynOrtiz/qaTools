@@ -90,6 +90,8 @@ ngx-monaco-editor {
     background-color: var(--background-sec);
     color: #ffffff;
     border: 1px solid var(--lines-hr);
+    display: block !important;
+    padding: 0px !important;
 }
 
 .close-sec {

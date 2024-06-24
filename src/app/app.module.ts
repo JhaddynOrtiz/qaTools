@@ -27,6 +27,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ComparerComponent } from './components/comparer/comparer.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { HighlightTextPipe } from './pipes/highlight-text.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -89,7 +90,8 @@ firebase.initializeApp(environment.firebaseConfig);
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
     AgGridModule,
     HttpClientModule,
-    SweetAlert2Module.forRoot()
+    SweetAlert2Module.forRoot(),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

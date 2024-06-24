@@ -47,3 +47,14 @@ body {
 .my-error {
     color: rgb(255, 113, 87) !important;
 }
+
+.custom-modal .modal-dialog {
+    max-width: 60% !important;
+}
+
+.custom-modal .modal-content {
+    background-color: var(--background-sec);
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+}

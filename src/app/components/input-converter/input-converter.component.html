@@ -1,4 +1,4 @@
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content background-sec">
             <div class="modal-header header-sec">
@@ -20,12 +20,13 @@
                 </div>
                 <div class="mb-3">
                     <label for="startUrls" class="form-label">startUrls</label>
-                    <!-- <input type="text" class="form-control" id="startUrls"> -->
-                    <textarea class="form-control input-color" id="startUrls" rows="10" [(ngModel)]="jsonModal"></textarea>
-                    <!-- <label for="floatingTextarea2">Comments</label> -->
+                    
+                    <textarea class="form-control input-color" id="startUrls" rows="10"
+                        [(ngModel)]="jsonModal"></textarea>
+                    
                 </div>
 
-                <!-- </form> -->
+               
             </div>
             <div class="modal-footer footer-sec">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -33,7 +34,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 
 
@@ -63,11 +64,16 @@
                 <label class="form-check-label" for="productId">ProductId</label>
             </div>
         </div>
+
         <div class="col-md-6">
-            <button *ngIf="codeHtml2 !== ''" type="button" class="btn button-prim m-1" data-bs-toggle="modal"
-                data-bs-target="#exampleModal">
+            <button *ngIf="codeHtml2 !== ''" type="button" class="btn button-prim m-1" (click)="openModal(content)">
                 Run Task Updater
             </button>
+            <!-- <button *ngIf="codeHtml2 !== ''" type="button" class="btn button-prim m-1" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+                Run Task Updater
+            </button> -->
+
 
             <button class="btn button-prim m-1 button-right" (click)="copyToClipboard(codeHtml2)">
                 <i class="bi bi-copy"></i> Copy
@@ -82,7 +88,8 @@
     <div class="row">
         <div class="col-md-6">
             <div class="editor-container">
-                <ngx-monaco-editor class="my-code-editor" [options]="codeEditorOptionsHtml" [(ngModel)]="codeHtml"></ngx-monaco-editor>
+                <ngx-monaco-editor class="my-code-editor" [options]="codeEditorOptionsHtml"
+                    [(ngModel)]="codeHtml"></ngx-monaco-editor>
             </div>
         </div>
         <div class="col-md-6">
@@ -92,3 +99,36 @@
         </div>
     </div>
 </div>
+
+<ng-template #content let-modal>
+    <div class="modal-header header-sec">
+        <h5 class="modal-title text-white" id="exampleModalLabel">Run Updater with results of Crawler</h5>
+        <button type="button" class="btn close-sec" (click)="modal.dismiss('Cross click')">
+            <i class="bi bi-x-lg"></i>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="col-auto">
+            <label for="urlTask" class="form-label text-white">Url Task</label>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control input-color" id="urlTask" [(ngModel)]="urlTask">
+                <div class="input-group-prepend">
+                    <button class="input-group-text button-clear-url" (click)="ClearUrl()"><i
+                            class="bi bi-x-circle"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="startUrls" class="form-label text-white">startUrls</label>
+
+            <textarea class="form-control input-color" id="startUrls" rows="10" [(ngModel)]="jsonModal"></textarea>
+
+        </div>
+
+
+    </div>
+    <div class="modal-footer footer-sec">
+        <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cross click')">Close</button>
+        <button type="button" class="btn button-prim" (click)="sendRequest()">Run Task</button>
+    </div>
+</ng-template>
