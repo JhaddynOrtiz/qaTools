@@ -39,7 +39,7 @@
             </div>
             <div class="col-md-6">
                 <div class="content-terminal">
-                    <!-- <label *ngIf="!logUrl; else urlLog" class="form-label text-white">Validation log</label>
+                    <label *ngIf="!logUrl; else urlLog" class="form-label text-white">Validation log</label>
                     <ng-template #urlLog>
                         <label class="form-label text-white text-url">Run#
                             <a target="_blank" [href]="logUrl">{{logUrl | truncate:50}}</a>
@@ -47,7 +47,7 @@
                         <button class="btn button-prim button-url" (click)="copyUrl()">
                             <i class="bi bi-copy"></i>
                         </button>
-                    </ng-template> -->
+                    </ng-template>
                     <button class="btn button-prim button-right"><i class="bi bi-fullscreen"></i></button>
                     <div *ngIf="logs != null; else loading">
                         <pre class="text-white terminal-text" [innerHTML]="logs | highlightText"></pre>

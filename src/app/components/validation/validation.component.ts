@@ -15,13 +15,6 @@ import Swal from 'sweetalert2';
 })
 export class ValidationComponent implements OnDestroy {
 
-  /* idTask: string = '';
-  typeRobot: string = '';
-  manufacturerCode: string = '';
-  productUrl: string = '';
-  imageUri: string = '';
-  cultureCode: string = ''; */
-
   cs_QAToken: string = 'GTLDwzJnfTMQqgBR4';
   taskId = 'XETtJl5o4ddH0I1Sg'; // ID de la tarea de Apify
   runId!: string;
@@ -33,17 +26,7 @@ export class ValidationComponent implements OnDestroy {
 
   form: FormGroup;
 
-  /* constructor(private taskService: TaskService, private apifyService: ApifyService) {
-    this.form = new FormGroup({
-      idTask: new FormControl('',),
-      typeRobot: new FormControl('crawler',),
-      manufacturerCode: new FormControl('',),
-      productUrl: new FormControl('',),
-      imageUri: new FormControl('',),
-      cultureCode: new FormControl('',)
-    });
-  } */
-  constructor(private taskService: TaskService, private apifyService: ApifyService) {
+  constructor(private apifyService: ApifyService) {
     this.form = new FormGroup({
       idTask: new FormControl('', [Validators.required]),
       typeRobot: new FormControl('crawler', [Validators.required]),
@@ -141,67 +124,6 @@ export class ValidationComponent implements OnDestroy {
       },
       "debugLog": false
     };
-
-    /* const body = {
-      "CheckDuplicates": {
-        "ProductUrl": true,
-        "ProductName": true,
-        "ProductId": true
-      },
-      "CheckMappingCodes": true,
-      "CultureCode": "pt-BR",
-      "Environment": "QA",
-      "Regex": {
-        "Manufacturer": [
-          {
-            "Code": "Philips",
-            "Match": true
-          }
-        ],
-        "ProductName": [
-          {
-            "Code": "&amp|&#xE9|&#xE2|&#xEE|&#xE0|&#x2019|&#xB0",
-            "Match": false
-          }
-        ],
-        "ProductUrl": [
-          {
-            "Code": "https://casasbahia.com.br/",
-            "Match": true
-          }
-        ],
-        "ProductId": [
-          {
-            "Code": "#|&|;|:|,",
-            "Match": false
-          }
-        ],
-        "Price": [
-          {
-            "Code": "^[0-9]*$|(\\d+\\.\\d+(.\\d+(.\\d+)?)?)|\\d+",
-            "Match": true
-          }
-        ],
-        "Stock": [
-          {
-            "Code": "InStock|OutOfStock",
-            "Match": true
-          }
-        ],
-        "ImageUri": [
-          {
-            "Code": "https://imgs.casasbahia.com.br/",
-            "Match": true
-          }
-        ]
-      },
-      "RobotTypes": {
-        "Name": "Crawler",
-        "TaskID": "RrpStpIT2gv7VLluD",
-        "ExcludeFields": []
-      },
-      "debugLog": false
-    } */
 
     if (this.form.valid) {
       const TokenApify = "apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W"

@@ -52,40 +52,7 @@ export class InputConverterComponent implements OnInit, OnDestroy {
 
 
   showJsonViewer: boolean = false;
-  codeHtml: any = `[
-  {
-    "ProductId": "1025057",
-    "Manufacturer": "Philips",
-    "ProductName": "Philips HD9950/00 Airfryer XXL Party Kit",
-    "ProductUrl": "https://www.expert.at/shop/haushalt-kueche/frittieren-grillen/fritteusen/philips-hd9950-00-airfryer-xxl-party-kit~p1025057",
-    "GTINCode": "8710103860792",
-    "Price": 29.99,
-    "ImageUri": "https://api.expert.at/produkte/bilder/aa28729_01.jpg",
-    "CTINCode": "HD9950/00",
-    "Stock": "InStock"
-  },
-  {
-    "ProductId": "1018248",
-    "Manufacturer": "Philips",
-    "ProductName": "Philips Saeco CA6700/90 Entkalker",
-    "ProductUrl": "https://www.expert.at/shop/kaffee-espresso/reinigen-pflegen/philips-saeco-ca6700-90-entkalker~p1018248",
-    "GTINCode": "8710103818748",
-    "Price": 7.99,
-    "ImageUri": "https://api.expert.at/produkte/bilder/aa28598_01.jpg",
-    "CTINCode": "CA6700/90",
-    "Stock": "InStock"
-  },
-  {
-    "ProductId": "2726632",
-    "Manufacturer": "Philips",
-    "ProductName": "Philips BHA530/00 AirStyler Series 5000",
-    "ProductUrl": "https://www.expert.at/shop/koerperpflege-wellness/haarstyling-pflege/lockenstaebe-buersten/philips-bha530-00-airstyler-series-5000~p2726632",
-    "GTINCode": "8720689002813",
-    "Price": 59.99,
-    "ImageUri": "https://api.expert.at/produkte/prodanet/AA39510/AA39510_01.jpeg",
-    "CTINCode": "BHA530/00",
-    "Stock": "InStock"
-  }]`;
+  codeHtml: any = ``;
   crawlerJson: any = '';
   productName: boolean = false;
   productId: boolean = false;
@@ -149,8 +116,6 @@ export class InputConverterComponent implements OnInit, OnDestroy {
       this.modalRef.close();
     }
   }
-  //https://console.apify.com/organization/GTLDwzJnfTMQqgBR4/actors/tasks/XETtJl5o4ddH0I1Sg/runs/2L4OfU9gm6lodXaqT#log
-  //https://api.apify.com/v2/logs/2L4OfU9gm6lodXaqT?token=apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W
 
   copyUrl() {
     navigator.clipboard.writeText(this.logUrl).then(() => {
