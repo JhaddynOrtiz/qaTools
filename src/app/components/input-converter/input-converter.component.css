@@ -119,3 +119,26 @@ ngx-monaco-editor {
     background-color: #1b2844 !important;
     color: #FFFFFF;
 }
+
+
+/* terminal styles */
+
+.terminal-text {
+    width: 100%;
+    height: 450px;
+    background-color: #1E1E1E;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.text-url {
+    vertical-align: middle;
+}
+
+.text-url a {
+    color: var(--button-prim);
+}
+
+.button-url {
+    margin-left: 5px;
+}

@@ -19,7 +19,7 @@ export class TaskService {
     return this.http.get(url);
   }
 
-  runTaskUpdater(data: any, urlTask: string): Observable<any> {
+ /*  runTaskUpdater(data: any, urlTask: string): Observable<any> {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
@@ -27,5 +27,5 @@ export class TaskService {
 
     return this.http.post(urlTask, JSON.stringify(data), { headers });
 
-  }
+  } */
 }

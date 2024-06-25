@@ -28,6 +28,8 @@ import { ComparerComponent } from './components/comparer/comparer.component';
 import { ValidationComponent } from './components/validation/validation.component';
 import { HighlightTextPipe } from './pipes/highlight-text.pipe';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TruncatePipe } from './pipes/truncate.pipe';
+import { DeployComponent } from './components/deploy/deploy.component';
 
 
 const firebaseUiAuthConfig: firebaseui.auth.Config = {
@@ -74,7 +76,9 @@ firebase.initializeApp(environment.firebaseConfig);
     HomeComponent,
     ComparerComponent,
     ValidationComponent,
-    HighlightTextPipe
+    HighlightTextPipe,
+    TruncatePipe,
+    DeployComponent
   ],
   imports: [
     BrowserModule,

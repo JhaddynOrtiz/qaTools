@@ -1,14 +1,10 @@
 <div class="title-container">
     <br>
-    <!-- <h2>{{userInfo[0]?.email}}</h2> -->
     <div class="container text-prim">
         <div class="row">
             <div class="col-md-6">
                 <h3>Send Validation</h3>
             </div>
-            <!-- <div class="col-md-6">
-                <h5 class="text-white">Logs</h5>
-            </div> -->
         </div>
     </div>
     <br>
@@ -66,21 +62,25 @@
                     </div>
                 </div>
                 <div class="col-12">
-                    <button class="btn button-prim button-send" type="submit">Submit form</button>
+                    <button class="btn button-prim button-send" type="submit">Run Validation</button>
                 </div>
             </form>
         </div>
         <div class="col-md-6">
             <div class="content-terminal">
-                <label class="form-label text-white">Validation log</label>
+                <label *ngIf="!logUrl; else urlLog" class="form-label text-white">Validation log</label>
+                <ng-template #urlLog>
+                    <label class="form-label text-white text-url">Run#
+                        <a target="_blank" [href]="logUrl">{{logUrl | truncate:50}}</a>
+                    </label>
+                    <button class="btn button-prim button-url" (click)="copyUrl()">
+                        <i class="bi bi-copy"></i>
+                    </button>
+                </ng-template>
                 <button class="btn button-prim button-right"><i class="bi bi-fullscreen"></i></button>
                 <div *ngIf="logs != null; else loading">
                     <pre class="text-white terminal-text" [innerHTML]="logs | highlightText"></pre>
                 </div>
-                <!-- <div *ngIf="logs != null; else loading">
-                    <pre class="text-white terminal-text">{{ logs }}</pre>
-                </div> -->
-
                 <ng-template #loading>
                     <pre class="text-white terminal-text">Loading...</pre>
                 </ng-template>

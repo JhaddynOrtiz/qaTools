@@ -48,6 +48,10 @@ body {
     color: rgb(255, 113, 87) !important;
 }
 
+.my-debug {
+    color: rgb(1, 160, 228) !important;
+}
+
 .custom-modal .modal-dialog {
     max-width: 60% !important;
 }

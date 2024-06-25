@@ -6,12 +6,14 @@ import { ProductionTaskListComponent } from './components/production-task-list/p
 import { HomeComponent } from './components/home/home.component';
 import { ComparerComponent } from './components/comparer/comparer.component';
 import { ValidationComponent } from './components/validation/validation.component';
+import { DeployComponent } from './components/deploy/deploy.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'convert', component: InputConverterComponent },
   { path: 'comparer', component: ComparerComponent },
   { path: 'validation', component: ValidationComponent },
+  { path: 'deploy', component: DeployComponent },
   { path: 'login', component: LoginComponent },
   { path: 'production-list', component: ProductionTaskListComponent }
 ];

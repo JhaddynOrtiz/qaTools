@@ -22,8 +22,11 @@ export class ValidationComponent implements OnDestroy {
   imageUri: string = '';
   cultureCode: string = ''; */
 
+  cs_QAToken: string = 'GTLDwzJnfTMQqgBR4';
   taskId = 'XETtJl5o4ddH0I1Sg'; // ID de la tarea de Apify
   runId!: string;
+  token: string = 'apify_api_Q4q60TiTquK8bxxcJe1luBgwoce66X0fNM5W';
+  logUrl!: string;
   logs: any = '';
 
   logSubscription: any = new Subscription;
@@ -51,19 +54,6 @@ export class ValidationComponent implements OnDestroy {
     });
   }
 
-  /* runTask() {
-    this.apifyService.runTask(this.taskId).subscribe(response => {
-      if (response.data && response.data.id) {
-        this.runId = response.data.id;
-        this.startLogPolling();
-      } else {
-        console.error('Error running task:', response);
-      }
-    }, error => {
-      console.error('Error running task:', error);
-    });
-  } */
-
   startLogPolling() {
     this.logs = null;
     if (this.logSubscription) {
@@ -74,7 +64,6 @@ export class ValidationComponent implements OnDestroy {
       switchMap(() => this.apifyService.getTaskRunResults(this.runId))
     ).subscribe(response => {
       this.logs = response;
-      console.log("here", this.logs);
       if (this.logs.includes('QA Validation Complete')) {
         this.stopLogPolling();
       }
@@ -151,7 +140,8 @@ export class ValidationComponent implements OnDestroy {
         "ExcludeFields": []
       },
       "debugLog": false
-    }
+    };
+
     /* const body = {
       "CheckDuplicates": {
         "ProductUrl": true,
@@ -221,7 +211,7 @@ export class ValidationComponent implements OnDestroy {
         (response) => {
           if (response.data && response.data.id) {
             this.runId = response.data.id;
-            console.log("here run ID", this.runId);
+            this.logUrl = `https://console.apify.com/organization/${this.cs_QAToken}/actors/tasks/XETtJl5o4ddH0I1Sg/runs/${this.runId}#log`;
             Swal.fire({
               title: "La tarea se envió a ejecutar!",
               text: "Check last run",
@@ -251,13 +241,19 @@ export class ValidationComponent implements OnDestroy {
         icon: "error"
       });
     }
+  }
 
-
+  copyUrl() {
+    navigator.clipboard.writeText(this.logUrl).then(() => {
+      console.log('URL copied to clipboard');
+    }).catch(err => {
+      console.error('Failed to copy: ', err);
+    });
   }
 
   ngOnDestroy() {
     if (this.logSubscription) {
-      this.logSubscription.unsubscribe(); // Cleanup the subscription when the component is destroyed
+      this.logSubscription.unsubscribe();
     }
   }
 

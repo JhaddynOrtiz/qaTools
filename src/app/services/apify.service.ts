@@ -103,7 +103,6 @@ export class ApifyService {
 
   getTaskRunResults(runId: string): Observable<any> {
     const url = `https://api.apify.com/v2/logs/${runId}?token=${this.token}`;
-    console.log('here get', url);
     return this.http.get(url, { responseType: 'text' });
   }
 
